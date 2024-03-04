@@ -74,6 +74,7 @@ export default function Home() {
   const m4 = useRef();
 
   function start() {
+
     const x = [];
     while (x.length < 52) {
       const x1 = Math.floor(Math.random() * 52);
@@ -86,15 +87,17 @@ export default function Home() {
         setNpc3(x.slice(39, 52));
       }
     }
+    m.current.style.display='flex'
+    m2.current.style.display='flex'
+    m3.current.style.display='flex'
+    m4.current.style.display='flex'
   }
-  // console.log(player);
-  // console.log(npc1);
-  // console.log(npc2);
-  // console.log(npc3);
+
   function reset() {
     window.location.reload();
   }
 
+  console.log(player1);
 
   function mEnter(x) {
     m.current.children[x].children[0].style.top = "-50px";
@@ -105,7 +108,23 @@ export default function Home() {
 
   const ep = useRef();
 
+  
   function clickPlayer(x, e) {
+
+    setTimeout(()=>{
+      setPlayer1([])
+      setNpc11([])
+      setNpc21([])
+      setNpc31([])
+      ep.current.children[0].children[0].style.display = "none";
+      ep.current.children[1].children[0].style.display = "none";
+      ep.current.children[2].children[0].style.display = "none";
+      ep.current.children[3].children[0].style.display = "none";
+    },2000)
+    
+
+    
+
     if (
       m.current.children[x].children[0].getAttribute("data-status") == "off"
     ) {
@@ -116,6 +135,9 @@ export default function Home() {
       m4.current.children[x].children[0].style.display = "none";
       m.current.children[x].style.zIndex = "1";
       ep.current.children[0].children[0].style.display = "flex";
+      ep.current.children[1].children[0].style.display = "flex";
+      ep.current.children[2].children[0].style.display = "flex";
+      ep.current.children[3].children[0].style.display = "flex";
       m.current.children[x].children[0].setAttribute("data-status", "on");
 
       if (player[x] < 13) {
@@ -347,7 +369,7 @@ export default function Home() {
       <section className="w-[400px] h-[90%] rounded-lg bg-[rgba(0,0,0,.2)] bs">
         <article className="w-[100%] h-[100%] flex flex-wrap">
           <div className="w-[100%] h-[15%] flex justify-center items-center">
-          <ul ref={m3} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-180 -translate-x-6">
+          <ul ref={m3} style={{display:'none'}} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-180 -translate-x-6">
               <li className="w-[50px] h-[60px] absolute top-[2px] right-[120px] z-[2] -rotate-[42deg]">
                 <Image
                   src={cards[npc2[0]]}
@@ -546,7 +568,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="h-[60%] w-[80px] flex justify-center items-center">
-          <ul ref={m4} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg rotate-90 translate-y-10">
+          <ul ref={m4} style={{display:'none'}} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg rotate-90 translate-y-10">
               <li className="w-[50px] h-[60px] absolute top-[2px] right-[120px] z-[2] -rotate-[42deg]">
                 <Image
                   src={cards[npc3[0]]}
@@ -771,7 +793,7 @@ export default function Home() {
                   width: "80px",
                   height: "100px",
                   objectFit: "cover",
-                  // display: "none",
+                  display: "none",
                 }}
               ></Image>
             </div>
@@ -786,7 +808,7 @@ export default function Home() {
                   width: "80px",
                   height: "100px",
                   objectFit: "cover",
-                  // display: "none",
+                  display: "none",
                 }}
               ></Image>
             </div>
@@ -801,13 +823,13 @@ export default function Home() {
                   width: "80px",
                   height: "100px",
                   objectFit: "cover",
-                  // display: "none",
+                  display: "none",
                 }}
               ></Image>
             </div>
           </div>
           <div className="h-[60%] w-[80px] flex justify-center items-center">
-            <ul ref={m2} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-90 -translate-y-10">
+            <ul ref={m2} style={{display:'none'}} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-90 -translate-y-10">
               <li className="w-[50px] h-[60px] absolute top-[2px] right-[120px] z-[2] -rotate-[42deg]">
                 <Image
                   src={cards[npc1[0]]}
@@ -1009,6 +1031,7 @@ export default function Home() {
           <div className="w-[100%] h-[25%] flex justify-center items-center">
             <ul
               ref={m}
+              style={{display:'none'}}
               className="w-[280px] h-[100px] relative *:cursor-pointer *:rounded-lg "
             >
               <li
