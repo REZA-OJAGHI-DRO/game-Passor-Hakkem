@@ -69,6 +69,9 @@ export default function Home() {
   const [npc3, setNpc3] = useState([]);
   const [npc31, setNpc31] = useState([]);
   const m = useRef();
+  const m2 = useRef();
+  const m3 = useRef();
+  const m4 = useRef();
 
   function start() {
     const x = [];
@@ -108,6 +111,9 @@ export default function Home() {
     ) {
       setPlayer1(cards[player[x]]);
       m.current.children[x].children[0].style.display = "none";
+      m2.current.children[x].children[0].style.display = "none";
+      m3.current.children[x].children[0].style.display = "none";
+      m4.current.children[x].children[0].style.display = "none";
       m.current.children[x].style.zIndex = "1";
       ep.current.children[0].children[0].style.display = "flex";
       m.current.children[x].children[0].setAttribute("data-status", "on");
@@ -341,7 +347,7 @@ export default function Home() {
       <section className="w-[400px] h-[90%] rounded-lg bg-[rgba(0,0,0,.2)] bs">
         <article className="w-[100%] h-[100%] flex flex-wrap">
           <div className="w-[100%] h-[15%] flex justify-center items-center">
-          <ul className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-180 -translate-x-6">
+          <ul ref={m3} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-180 -translate-x-6">
               <li className="w-[50px] h-[60px] absolute top-[2px] right-[120px] z-[2] -rotate-[42deg]">
                 <Image
                   src={cards[npc2[0]]}
@@ -540,10 +546,10 @@ export default function Home() {
             </ul>
           </div>
           <div className="h-[60%] w-[80px] flex justify-center items-center">
-          <ul className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg rotate-90 translate-y-10">
+          <ul ref={m4} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg rotate-90 translate-y-10">
               <li className="w-[50px] h-[60px] absolute top-[2px] right-[120px] z-[2] -rotate-[42deg]">
                 <Image
-                  src={cards[npc2[0]]}
+                  src={cards[npc3[0]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -558,7 +564,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[1.5px] right-[110px] z-[3] -rotate-[35deg]">
                 <Image
-                  src={cards[npc2[1]]}
+                  src={cards[npc3[1]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -573,7 +579,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[1px] right-[100px] z-[4] -rotate-[28deg]">
                 <Image
-                  src={cards[npc2[2]]}
+                  src={cards[npc3[2]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -588,7 +594,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[.5px] right-[90px] z-[5] -rotate-[21deg]">
                 <Image
-                  src={cards[npc2[3]]}
+                  src={cards[npc3[3]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -603,7 +609,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[0px] right-[80px] z-[6] -rotate-[14deg]">
                 <Image
-                  src={cards[npc2[4]]}
+                  src={cards[npc3[4]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -618,7 +624,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[-.5px] right-[70px] z-[7] -rotate-[7deg]">
                 <Image
-                  src={cards[npc2[5]]}
+                  src={cards[npc3[5]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -633,7 +639,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[-1px] right-[60px] z-[8]">
                 <Image
-                  src={cards[npc2[6]]}
+                  src={cards[npc3[6]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -648,7 +654,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[-.5px] right-[50px] z-[9] rotate-[7deg]">
                 <Image
-                  src={cards[npc2[7]]}
+                  src={cards[npc3[7]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -663,7 +669,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[0px] right-[40px] z-[10] rotate-[14deg]">
                 <Image
-                  src={cards[npc2[8]]}
+                  src={cards[npc3[8]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -678,7 +684,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[.5px] right-[30px] z-[11] rotate-[21deg]">
                 <Image
-                  src={cards[npc2[9]]}
+                  src={cards[npc3[9]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -693,7 +699,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[1px] right-[20px] z-[12] rotate-[28deg]">
                 <Image
-                  src={cards[npc2[10]]}
+                  src={cards[npc3[10]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -708,7 +714,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[1.5px] right-[10px] z-[13]  rotate-[35deg]">
                 <Image
-                  src={cards[npc2[11]]}
+                  src={cards[npc3[11]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -723,7 +729,7 @@ export default function Home() {
               </li>
               <li className="w-[50px] h-[60px] absolute top-[2px] right-[0px] z-[14] rotate-[42deg]">
                 <Image
-                  src={cards[npc2[12]]}
+                  src={cards[npc3[12]]}
                   data-status="off"
                   alt="Picture of the author"
                   width="300000"
@@ -801,7 +807,7 @@ export default function Home() {
             </div>
           </div>
           <div className="h-[60%] w-[80px] flex justify-center items-center">
-            <ul className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-90 -translate-y-10">
+            <ul ref={m2} className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-90 -translate-y-10">
               <li className="w-[50px] h-[60px] absolute top-[2px] right-[120px] z-[2] -rotate-[42deg]">
                 <Image
                   src={cards[npc1[0]]}
