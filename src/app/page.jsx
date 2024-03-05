@@ -94,7 +94,24 @@ export default function Home() {
     ["160px", "80px"],
     ["90px", "20px"],
   ];
-
+  const data4=[
+    ['0px','2'],
+    ['8px','3'],
+    ['16px','4'],
+    ['24px','5'],
+    ['32px','6'],
+    ['40px','7'],
+    ['48px','8']
+  ]
+  const data5=[
+    ['0px','2'],
+    ['8px','3'],
+    ['16px','4'],
+    ['24px','5'],
+    ['32px','6'],
+    ['40px','7'],
+    ['48px','8']
+  ]
   const [cardsRandom, setCardsRandom] = useState();
   const [cards1, setCards1] = useState();
   const [player, setPlayer] = useState([]);
@@ -111,7 +128,6 @@ export default function Home() {
   const m3 = useRef();
   const m4 = useRef();
 
-  
   const [results1, setResults1] = useState([]);
   const [results2, setResults2] = useState([]);
 
@@ -445,15 +461,15 @@ export default function Home() {
 
       setTimeout(() => {
         if (flag3 > flag4 && flag3 > flag5 && flag3 > flag6) {
-          setResults1(para1=>[...para1,'y']);
+          setResults1((para1) => [...para1, "y"]);
         } else if (flag4 > flag3 && flag4 > flag5 && flag4 > flag6) {
-          setResults2(para1=>[...para1,'x']);
+          setResults2((para1) => [...para1, "x"]);
         } else if (flag5 > flag3 && flag5 > flag4 && flag5 > flag6) {
-          setResults1(para1=>[...para1,'y']);
+          setResults1((para1) => [...para1, "y"]);
         } else if (flag6 > flag3 && flag6 > flag4 && flag6 > flag5) {
-          setResults2(para1=>[...para1,'x']);
+          setResults2((para1) => [...para1, "x"]);
         }
-        
+
         setCards1([]);
         setPlayer1([]);
         setNpc11([]);
@@ -461,12 +477,14 @@ export default function Home() {
         setNpc31([]);
         // console.log(flag3);
       }, 2000);
-      
+
       console.log(results1);
       console.log(results2);
     }
   }
   // console.log(results1);
+
+
 
   return (
     <main className="w-[100%] h-[100vh] bg flex justify-center items-center">
@@ -477,110 +495,28 @@ export default function Home() {
               <p className="w-[70%] h-[35%] text-[1.2rem] uppercase flex justify-center items-center text-white">
                 player
               </p>
-              <div className="w-[90%] h-[65%] border relative bottom-0">
+              <div className="w-[90%] h-[65%] relative bottom-0">
                 <ul className="w-[100%] h-[100%] absolute">
-                  <li  className="w-[38px] h-[50px] absolute top-[5px]">
-                  <Image
-                        src={cards[npc2[0]]}
-                        alt="Picture of the author"
-                        width="300000"
-                        height="400000"
-                        className="absolute top-0"
-                        style={{
-                          width: "38px",
-                          height: "50px",
-                          objectFit: "cover",
-                        }}
-                      ></Image>
-                  </li>
-                  <li  className="w-[38px] h-[50px] absolute top-[5px]">
-                  <Image
-                        src={cards[npc2[0]]}
-                        alt="Picture of the author"
-                        width="300000"
-                        height="400000"
-                        className="absolute top-0"
-                        style={{
-                          width: "38px",
-                          height: "50px",
-                          objectFit: "cover",
-                        }}
-                      ></Image>
-                  </li>
-                  <li  className="w-[38px] h-[50px] absolute top-[5px]">
-                  <Image
-                        src={cards[npc2[0]]}
-                        alt="Picture of the author"
-                        width="300000"
-                        height="400000"
-                        className="absolute top-0"
-                        style={{
-                          width: "38px",
-                          height: "50px",
-                          objectFit: "cover",
-                        }}
-                      ></Image>
-                  </li>
-                  <li  className="w-[38px] h-[50px] absolute top-[5px]">
-                  <Image
-                        src={cards[npc2[0]]}
-                        alt="Picture of the author"
-                        width="300000"
-                        height="400000"
-                        className="absolute top-0"
-                        style={{
-                          width: "38px",
-                          height: "50px",
-                          objectFit: "cover",
-                        }}
-                      ></Image>
-                  </li>
-                  <li  className="w-[38px] h-[50px] absolute top-[5px]">
-                  <Image
-                        src={cards[npc2[0]]}
-                        alt="Picture of the author"
-                        width="300000"
-                        height="400000"
-                        className="absolute top-0"
-                        style={{
-                          width: "38px",
-                          height: "50px",
-                          objectFit: "cover",
-                        }}
-                      ></Image>
-                  </li>
-                  <li  className="w-[38px] h-[50px] absolute top-[5px]">
-                  <Image
-                        src={cards[npc2[0]]}
-                        alt="Picture of the author"
-                        width="300000"
-                        height="400000"
-                        className="absolute top-0"
-                        style={{
-                          width: "38px",
-                          height: "50px",
-                          objectFit: "cover",
-                        }}
-                      ></Image>
-                  </li>
-                  <li  className="w-[38px] h-[50px] absolute top-[5px]">
-                  <Image
-                        src={cards[npc2[0]]}
-                        alt="Picture of the author"
-                        width="300000"
-                        height="400000"
-                        className="absolute top-0"
-                        style={{
-                          width: "38px",
-                          height: "50px",
-                          objectFit: "cover",
-                        }}
-                      ></Image>
-                  </li>
-                  {/* {results1&&results1.map((val,i)=>{
+                  <li></li>
+                  {results1&&results1.map((val,i)=>{
                     return(
+                  <li key={i} style={{left:data4[i][0],zIndex:data4[i][1]}} className="w-[38px] h-[50px] absolute top-[1px]">
+                    <Image
+                      src='/53.jpg'
+                      alt="Picture of the author"
+                      width="300000"
+                      height="400000"
+                      className="absolute top-0 rounded-sm"
+                      style={{
+                        width: "40px",
+                        height: "57px",
+                        objectFit: "cover",
+                      }}
+                    ></Image>
+                  </li>
                     )
-                  })} */}
+                  })}
+
                 </ul>
               </div>
             </div>
@@ -603,7 +539,35 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="w-[33%] h-[100%] border"></div>
+            <div className="w-[33%] h-[100%] flex flex-wrap justify-center content-around">
+              <p className="w-[70%] h-[35%] text-[1.2rem] uppercase flex justify-center items-center text-white">
+                player
+              </p>
+              <div className="w-[90%] h-[65%] relative bottom-0">
+                <ul className="w-[100%] h-[100%] absolute">
+                  <li></li>
+                  {results2&&results2.map((val,i)=>{
+                    return(
+                  <li key={i} style={{right:data5[i][0],zIndex:data5[i][1]}} className="w-[40px] h-[55px] absolute top-[1px]">
+                    <Image
+                      src='/53.jpg'
+                      alt="Picture of the author"
+                      width="300000"
+                      height="400000"
+                      className="absolute top-0  rounded-sm"
+                      style={{
+                        width: "40px",
+                        height: "57px",
+                        objectFit: "cover",
+                      }}
+                    ></Image>
+                  </li>
+                    )
+                  })}
+
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div className="w-[100%] h-[15%] flex justify-center items-center">
@@ -616,7 +580,7 @@ export default function Home() {
                 player.map((val, i) => {
                   return (
                     <li
-                    key={i}
+                      key={i}
                       className="w-[50px] h-[60px] absolute"
                       style={{
                         top: data2[i][0],
@@ -655,7 +619,7 @@ export default function Home() {
                 player.map((val, i) => {
                   return (
                     <li
-                    key={i}
+                      key={i}
                       className="w-[50px] h-[60px] absolute"
                       style={{
                         top: data2[i][0],
@@ -722,7 +686,7 @@ export default function Home() {
                 player.map((val, i) => {
                   return (
                     <li
-                    key={i}
+                      key={i}
                       className="w-[50px] h-[60px] absolute"
                       style={{
                         top: data2[i][0],
@@ -761,7 +725,7 @@ export default function Home() {
                 player.map((val, i) => {
                   return (
                     <li
-                    key={i}
+                      key={i}
                       onMouseEnter={() => mEnter(i)}
                       onMouseLeave={() => mleave(i)}
                       onClick={() => clickPlayer(i, event)}
