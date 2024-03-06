@@ -264,10 +264,24 @@ export default function Home() {
         let flag1 = null;
         let flag2 = null;
         const x1 = npc1111.find((reza) => reza > player[x]);
-        console.log(npc1111);
-        
+
+
         if(npc1111.length==0){
-          alert('reza')
+          if(cardsH==2){
+            const npc111 = npc1.filter((number) => 13 < number && number < 26);
+            const npc1111 = npc111.slice().sort((a, b) => a - b);
+            const x2 = npc1111[0];
+            setNpc11(cards[x2]);
+            flag = x2;
+            const y = npc1.indexOf(x2);
+            npc1.splice(y, 1);
+          }else if(cardsH==3){
+
+          }else if(cardsH==4){
+
+          }else if(cardsH==1){
+
+          }
         }else{
           if (x1) {
             setNpc11(cards[x1]);
@@ -282,7 +296,8 @@ export default function Home() {
             npc1.splice(y, 1);
           }
         }
-
+        console.log(npc1111);
+        console.log(npc1);
         const npc211 = npc2222.find((reza1) => reza1 > flag);
         const npc213 = npc2222.find((reza1) => reza1 > player[x]);
 
