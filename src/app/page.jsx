@@ -94,26 +94,27 @@ export default function Home() {
     ["160px", "80px"],
     ["90px", "20px"],
   ];
-  const data4=[
-    ['0px','2'],
-    ['8px','3'],
-    ['16px','4'],
-    ['24px','5'],
-    ['32px','6'],
-    ['40px','7'],
-    ['48px','8']
-  ]
-  const data5=[
-    ['0px','2'],
-    ['8px','3'],
-    ['16px','4'],
-    ['24px','5'],
-    ['32px','6'],
-    ['40px','7'],
-    ['48px','8']
-  ]
+  const data4 = [
+    ["0px", "2"],
+    ["8px", "3"],
+    ["16px", "4"],
+    ["24px", "5"],
+    ["32px", "6"],
+    ["40px", "7"],
+    ["48px", "8"],
+  ];
+  const data5 = [
+    ["0px", "2"],
+    ["8px", "3"],
+    ["16px", "4"],
+    ["24px", "5"],
+    ["32px", "6"],
+    ["40px", "7"],
+    ["48px", "8"],
+  ];
   const [cardsRandom, setCardsRandom] = useState();
   const [cards1, setCards1] = useState();
+  const [cardsH, setCardsH] = useState();
   const [player, setPlayer] = useState([]);
   const [player1, setPlayer1] = useState([]);
   const [npc1, setNpc1] = useState([]);
@@ -130,6 +131,70 @@ export default function Home() {
 
   const [results1, setResults1] = useState([]);
   const [results2, setResults2] = useState([]);
+
+  const mdh1 = useRef();
+  const mdh2 = useRef();
+  const mdh3 = useRef();
+  const mdh4 = useRef();
+  const H = useRef();
+  const i1 = useRef();
+  const i2 = useRef();
+  const i3 = useRef();
+  const i4 = useRef();
+
+  function mdh(x) {
+    switch (true) {
+      case x == 1:
+        mdh1.current.style.scale = ".9";
+        break;
+      case x == 2:
+        mdh2.current.style.scale = ".9";
+        break;
+      case x == 3:
+        mdh3.current.style.scale = ".9";
+        break;
+      case x == 4:
+        mdh4.current.style.scale = ".9";
+        break;
+    }
+  }
+  function muh(x) {
+    switch (true) {
+      case x == 1:
+        mdh1.current.style.scale = "1";
+        break;
+      case x == 2:
+        mdh2.current.style.scale = "1";
+        break;
+      case x == 3:
+        mdh3.current.style.scale = "1";
+        break;
+      case x == 4:
+        mdh4.current.style.scale = "1";
+        break;
+    }
+  }
+  function clickH(x) {
+    switch (true) {
+      case x == 1:
+        setCardsH(1);
+        i1.current.style.display='flex'
+        break;
+      case x == 2:
+        setCardsH(2);
+        i2.current.style.display='flex'
+        break;
+      case x == 3:
+        setCardsH(3);
+        i3.current.style.display='flex'
+        break;
+      case x == 4:
+        setCardsH(4);
+        i4.current.style.display='flex'
+        break;
+    }
+    H.current.style.display = "none";
+  }
 
   function start() {
     const x = [];
@@ -169,11 +234,16 @@ export default function Home() {
     ) {
       setPlayer1(cards[player[x]]);
       m.current.children[x].children[0].style.display = "none";
-      m2.current.children[x].children[0].style.display = "none";
-      m3.current.children[x].children[0].style.display = "none";
-      m4.current.children[x].children[0].style.display = "none";
+      if(npc1.length<x){
+        m2.current.children[x].children[0].style.display = "none";
+      }
+      if(npc2.length<x){
+        m3.current.children[x].children[0].style.display = "none";
+      }
+      if(npc3.length<x){
+        m4.current.children[x].children[0].style.display = "none";
+      }
       m.current.children[x].style.zIndex = "1";
-
 
       m.current.children[x].children[0].setAttribute("data-status", "on");
 
@@ -194,40 +264,44 @@ export default function Home() {
         let flag1 = null;
         let flag2 = null;
         const x1 = npc1111.find((reza) => reza > player[x]);
-        
-        if (x1) {
-          setNpc11(cards[x1]);
-          flag = x1;
-          const y =npc1.indexOf(x1)
-          npc1.splice(y,1)
-        } else {
-          const x2 = npc1111[0];
-          setNpc11(cards[x2]);
-          flag = x2;
-          const y =npc1.indexOf(x2)
-          npc1.splice(y,1)
-        }
         console.log(npc1111);
-        console.log(npc1)
+        
+        if(npc1111.length==0){
+          alert('reza')
+        }else{
+          if (x1) {
+            setNpc11(cards[x1]);
+            flag = x1;
+            const y = npc1.indexOf(x1);
+            npc1.splice(y, 1);
+          } else {
+            const x2 = npc1111[0];
+            setNpc11(cards[x2]);
+            flag = x2;
+            const y = npc1.indexOf(x2);
+            npc1.splice(y, 1);
+          }
+        }
+
         const npc211 = npc2222.find((reza1) => reza1 > flag);
         const npc213 = npc2222.find((reza1) => reza1 > player[x]);
 
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
-          const y =npc2.indexOf(npc211)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc211);
+          npc2.splice(y, 1);
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
-          const y =npc2.indexOf(npc213)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc213);
+          npc2.splice(y, 1);
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          const y =npc2.indexOf(npc212)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc212);
+          npc2.splice(y, 1);
         }
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
         const npc313 = npc3333.find((reza2) => reza2 > player[x]);
@@ -236,24 +310,24 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
-          const y =npc3.indexOf(npc311)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc311);
+          npc3.splice(y, 1);
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
-          const y =npc3.indexOf(npc314)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc314);
+          npc3.splice(y, 1);
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
-          const y =npc3.indexOf(npc313)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc313);
+          npc3.splice(y, 1);
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          const y =npc3.indexOf(npc312)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc312);
+          npc3.splice(y, 1);
         }
 
         flag3 = player[x];
@@ -263,7 +337,7 @@ export default function Home() {
 
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1)
+        setCards1(y1);
       } else if (13 < player[x] < 26) {
         const npc111 = npc1.filter((number) => 13 < number && number < 26);
         const npc222 = npc2.filter((number) => 13 < number && number < 26);
@@ -280,14 +354,14 @@ export default function Home() {
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
-          const y =npc1.indexOf(x1)
-          npc1.splice(y,1)
+          const y = npc1.indexOf(x1);
+          npc1.splice(y, 1);
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
-          const y =npc1.indexOf(x2)
-          npc1.splice(y,1)
+          const y = npc1.indexOf(x2);
+          npc1.splice(y, 1);
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -296,19 +370,19 @@ export default function Home() {
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
-          const y =npc2.indexOf(npc211)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc211);
+          npc2.splice(y, 1);
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
-          const y =npc2.indexOf(npc213)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc213);
+          npc2.splice(y, 1);
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          const y =npc2.indexOf(npc212)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc212);
+          npc2.splice(y, 1);
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -318,34 +392,33 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
-          const y =npc3.indexOf(npc311)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc311);
+          npc3.splice(y, 1);
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
-          const y =npc3.indexOf(npc314)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc314);
+          npc3.splice(y, 1);
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
-          const y =npc3.indexOf(npc313)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc313);
+          npc3.splice(y, 1);
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          const y =npc3.indexOf(npc312)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc312);
+          npc3.splice(y, 1);
         }
         flag3 = player[x];
         flag4 = flag;
         flag5 = flag1;
         flag6 = flag2;
 
-
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1)
+        setCards1(y1);
       } else if (26 < player[x] < 39) {
         const npc111 = npc1.filter((number) => 26 < number && number < 39);
         const npc222 = npc2.filter((number) => 26 < number && number < 39);
@@ -363,14 +436,14 @@ export default function Home() {
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
-          const y =npc1.indexOf(x1)
-          npc1.splice(y,1)
+          const y = npc1.indexOf(x1);
+          npc1.splice(y, 1);
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
-          const y =npc1.indexOf(x2)
-          npc1.splice(y,1)
+          const y = npc1.indexOf(x2);
+          npc1.splice(y, 1);
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -379,19 +452,19 @@ export default function Home() {
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
-          const y =npc2.indexOf(npc211)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc211);
+          npc2.splice(y, 1);
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
-          const y =npc2.indexOf(npc213)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc213);
+          npc2.splice(y, 1);
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          const y =npc2.indexOf(npc212)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc212);
+          npc2.splice(y, 1);
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -401,24 +474,24 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
-          const y =npc3.indexOf(npc311)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc311);
+          npc3.splice(y, 1);
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
-          const y =npc3.indexOf(npc314)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc314);
+          npc3.splice(y, 1);
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
-          const y =npc3.indexOf(npc313)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc313);
+          npc3.splice(y, 1);
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          const y =npc3.indexOf(npc312)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc312);
+          npc3.splice(y, 1);
         }
         flag3 = player[x];
         flag4 = flag;
@@ -426,7 +499,7 @@ export default function Home() {
         flag6 = flag2;
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1)
+        setCards1(y1);
       } else if (39 < player[x] < 52) {
         const npc111 = npc1.filter((number) => 39 < number && number < 52);
         const npc222 = npc2.filter((number) => 39 < number && number < 52);
@@ -443,14 +516,14 @@ export default function Home() {
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
-          const y =npc1.indexOf(x1)
-          npc1.splice(y,1)
+          const y = npc1.indexOf(x1);
+          npc1.splice(y, 1);
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
-          const y =npc1.indexOf(x2)
-          npc1.splice(y,1)
+          const y = npc1.indexOf(x2);
+          npc1.splice(y, 1);
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -459,19 +532,19 @@ export default function Home() {
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
-          const y =npc2.indexOf(npc211)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc211);
+          npc2.splice(y, 1);
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
-          const y =npc2.indexOf(npc213)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc213);
+          npc2.splice(y, 1);
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          const y =npc2.indexOf(npc212)
-          npc2.splice(y,1)
+          const y = npc2.indexOf(npc212);
+          npc2.splice(y, 1);
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -481,24 +554,24 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
-          const y =npc3.indexOf(npc311)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc311);
+          npc3.splice(y, 1);
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
-          const y =npc3.indexOf(npc314)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc314);
+          npc3.splice(y, 1);
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
-          const y =npc3.indexOf(npc313)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc313);
+          npc3.splice(y, 1);
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          const y =npc3.indexOf(npc312)
-          npc3.splice(y,1)
+          const y = npc3.indexOf(npc312);
+          npc3.splice(y, 1);
         }
         flag3 = player[x];
         flag4 = flag;
@@ -506,11 +579,9 @@ export default function Home() {
         flag6 = flag2;
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1)
+        setCards1(y1);
       }
-      console.log(npc1);
-      console.log(npc2);
-      console.log(npc3);
+
       setTimeout(() => {
         ep.current.children[1].children[0].style.display = "flex";
         ep.current.children[2].children[0].style.display = "flex";
@@ -534,10 +605,7 @@ export default function Home() {
         setNpc11([]);
         setNpc21([]);
         setNpc31([]);
-        // console.log(flag3);
       }, 2000);
-
-
     }
   }
 
@@ -545,36 +613,59 @@ export default function Home() {
 
   return (
     <main className="w-[100%] h-[100vh] bg flex justify-center items-center">
-      <section className="w-[400px] h-[90%] rounded-lg bg-[rgba(0,0,0,.2)] bs">
-        <article className="w-[100%] h-[100%] flex flex-wrap">
-
+      <section className="w-[400px] h-[90%] rounded-lg bg-[rgba(0,0,0,.2)] bs relative">
+        <article className="w-[100%] h-[100%] flex flex-wrap absolute">
           <div className="w-[100%] flex justify-between h-[15%]">
             <div className="w-[33%] h-[100%] flex flex-wrap justify-center content-around">
-              <p className="w-[70%] h-[35%] text-[1.2rem] uppercase flex justify-center items-center text-white">
+              <p className="w-[70%] h-[35%] text-[1.2rem] uppercase flex justify-center gap-3 items-center text-white">
                 player
+                <i
+                  ref={i1}
+                  className="bi bi-suit-spade-fill text-black text-[1.5rem]"
+                  style={{ display: "none" }}
+                ></i>
+                <i
+                  ref={i2}
+                  className="bi bi-suit-diamond-fill text-red-600 text-[1.5rem]"
+                  style={{ display: "none" }}
+                ></i>
+                <i
+                  ref={i3}
+                  className="bi bi-suit-heart-fill text-red-600 text-[1.5rem]"
+                  style={{ display: "none" }}
+                ></i>
+                <i
+                  ref={i4}
+                  className="bi bi-suit-club-fill text-black text-[1.5rem]"
+                  style={{ display: "none" }}
+                ></i>
               </p>
               <div className="w-[90%] h-[65%] relative bottom-0">
                 <ul className="w-[100%] h-[100%] absolute">
                   <li></li>
-                  {results1&&results1.map((val,i)=>{
-                    return(
-                  <li key={i} style={{left:data4[i][0],zIndex:data4[i][1]}} className="w-[38px] h-[50px] absolute top-[1px]">
-                    <Image
-                      src='/53.jpg'
-                      alt="Picture of the author"
-                      width="300000"
-                      height="400000"
-                      className="absolute top-0 rounded-sm"
-                      style={{
-                        width: "40px",
-                        height: "57px",
-                        objectFit: "cover",
-                      }}
-                    ></Image>
-                  </li>
-                    )
-                  })}
-
+                  {results1 &&
+                    results1.map((val, i) => {
+                      return (
+                        <li
+                          key={i}
+                          style={{ left: data4[i][0], zIndex: data4[i][1] }}
+                          className="w-[38px] h-[50px] absolute top-[1px]"
+                        >
+                          <Image
+                            src="/53.jpg"
+                            alt="Picture of the author"
+                            width="300000"
+                            height="400000"
+                            className="absolute top-0 rounded-sm"
+                            style={{
+                              width: "40px",
+                              height: "57px",
+                              objectFit: "cover",
+                            }}
+                          ></Image>
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
             </div>
@@ -599,30 +690,34 @@ export default function Home() {
 
             <div className="w-[33%] h-[100%] flex flex-wrap justify-center content-around">
               <p className="w-[70%] h-[35%] text-[1.2rem] uppercase flex justify-center items-center text-white">
-              Computer
+                Computer
               </p>
               <div className="w-[90%] h-[65%] relative bottom-0">
                 <ul className="w-[100%] h-[100%] absolute">
                   <li></li>
-                  {results2&&results2.map((val,i)=>{
-                    return(
-                  <li key={i} style={{right:data5[i][0],zIndex:data5[i][1]}} className="w-[40px] h-[55px] absolute top-[1px]">
-                    <Image
-                      src='/53.jpg'
-                      alt="Picture of the author"
-                      width="300000"
-                      height="400000"
-                      className="absolute top-0  rounded-sm"
-                      style={{
-                        width: "40px",
-                        height: "57px",
-                        objectFit: "cover",
-                      }}
-                    ></Image>
-                  </li>
-                    )
-                  })}
-
+                  {results2 &&
+                    results2.map((val, i) => {
+                      return (
+                        <li
+                          key={i}
+                          style={{ right: data5[i][0], zIndex: data5[i][1] }}
+                          className="w-[40px] h-[55px] absolute top-[1px]"
+                        >
+                          <Image
+                            src="/53.jpg"
+                            alt="Picture of the author"
+                            width="300000"
+                            height="400000"
+                            className="absolute top-0  rounded-sm"
+                            style={{
+                              width: "40px",
+                              height: "57px",
+                              objectFit: "cover",
+                            }}
+                          ></Image>
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
             </div>
@@ -814,6 +909,49 @@ export default function Home() {
 
               <li></li>
             </ul>
+          </div>
+        </article>
+        <article
+          ref={H}
+          className="w-[100%] h-[100%] flex justify-center items-center absolute"
+        >
+          <div className="w-[90%] h-[30%] bs1 bg-[#35374b84] flex justify-around items-center rounded-lg backdrop:blur-lg">
+            <button
+              ref={mdh1}
+              onMouseDown={() => mdh(1)}
+              onMouseLeave={() => muh(1)}
+              onClick={() => clickH(1)}
+              className="w-[17%] scale-100 h-[4rem] flex justify-center items-center text-[2rem] rounded-lg bg-[#50727B] bs1"
+            >
+              <i className="bi bi-suit-spade-fill"></i>
+            </button>
+            <button
+              ref={mdh2}
+              onMouseDown={() => mdh(2)}
+              onMouseLeave={() => muh(2)}
+              onClick={() => clickH(2)}
+              className="w-[17%]  h-[4rem] flex justify-center items-center text-[2rem] rounded-lg bg-[#50727B] bs1"
+            >
+              <i className="bi bi-suit-diamond-fill text-red-600"></i>
+            </button>
+            <button
+              ref={mdh3}
+              onMouseDown={() => mdh(3)}
+              onMouseLeave={() => muh(3)}
+              onClick={() => clickH(3)}
+              className="w-[17%]  h-[4rem] flex justify-center items-center text-[2rem] rounded-lg bg-[#50727B] bs1"
+            >
+              <i className="bi bi-suit-heart-fill text-red-600"></i>
+            </button>
+            <button
+              ref={mdh4}
+              onMouseDown={() => mdh(4)}
+              onMouseLeave={() => muh(4)}
+              onClick={() => clickH(4)}
+              className="w-[17%]  h-[4rem] flex justify-center items-center text-[2rem] rounded-lg bg-[#50727B] bs1"
+            >
+              <i className="bi bi-suit-club-fill"></i>
+            </button>
           </div>
         </article>
       </section>
