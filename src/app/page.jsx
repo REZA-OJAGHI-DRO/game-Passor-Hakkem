@@ -173,12 +173,7 @@ export default function Home() {
       m3.current.children[x].children[0].style.display = "none";
       m4.current.children[x].children[0].style.display = "none";
       m.current.children[x].style.zIndex = "1";
-      setTimeout(() => {
-        ep.current.children[1].children[0].style.display = "flex";
-        ep.current.children[2].children[0].style.display = "flex";
-        ep.current.children[3].children[0].style.display = "flex";
-        ep.current.children[4].children[0].style.display = "flex";
-      }, 10);
+
 
       m.current.children[x].children[0].setAttribute("data-status", "on");
 
@@ -199,15 +194,24 @@ export default function Home() {
         let flag1 = null;
         let flag2 = null;
         const x1 = npc1111.find((reza) => reza > player[x]);
-
+        console.log(npc1111);
+        console.log(x1);
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
+          // setTimeout(() => {
+          //   npc1111.filter(item => item !==x1)
+            
+          // }, 2000);
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
+          // setTimeout(() => {
+          //   // npc1111.shift()
+          // },10);
         }
+        console.log(npc1111);
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
         const npc213 = npc2222.find((reza1) => reza1 > player[x]);
@@ -222,8 +226,10 @@ export default function Home() {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
+          // setTimeout(() => {
+          //   npc2222.shift()
+          // },10);
         }
-
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
         const npc313 = npc3333.find((reza2) => reza2 > player[x]);
         const npc314 = npc3333.find((reza2) => reza2 > flag);
@@ -241,6 +247,9 @@ export default function Home() {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
+          // setTimeout(() => {
+          //   npc3333.shift()
+          // },10);
         }
 
         flag3 = player[x];
@@ -250,11 +259,7 @@ export default function Home() {
 
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1);
-        // setFlag3(player[x])
-        // setFlag4(flag)
-        // setFlag5(flag1)
-        // setFlag6(flag2)
+        setCards1(y1)
       } else if (13 < player[x] < 26) {
         const npc111 = npc1.filter((number) => 13 < number && number < 26);
         const npc222 = npc2.filter((number) => 13 < number && number < 26);
@@ -275,6 +280,9 @@ export default function Home() {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
+          // setTimeout(() => {
+          //   npc1111.shift()
+          // },10);
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -290,6 +298,9 @@ export default function Home() {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
+          // setTimeout(() => {
+          //   npc2222.shift()
+          // },10);
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -309,19 +320,19 @@ export default function Home() {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
+          // setTimeout(() => {
+          //   npc3333.shift()
+          // },10);
         }
         flag3 = player[x];
         flag4 = flag;
         flag5 = flag1;
         flag6 = flag2;
-        // setFlag3(player[x])
-        // setFlag4(flag)
-        // setFlag5(flag1)
-        // setFlag6(flag2)
+
 
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1);
+        setCards1(y1)
       } else if (26 < player[x] < 39) {
         const npc111 = npc1.filter((number) => 26 < number && number < 39);
         const npc222 = npc2.filter((number) => 26 < number && number < 39);
@@ -343,6 +354,9 @@ export default function Home() {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
+          // setTimeout(() => {
+          //   npc1111.shift()
+          // },10);
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -358,6 +372,9 @@ export default function Home() {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
+          // setTimeout(() => {
+          //   npc2222.shift()
+          // },10);
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -377,6 +394,9 @@ export default function Home() {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
+          // setTimeout(() => {
+          //   npc3333.shift()
+          // },10);
         }
         flag3 = player[x];
         flag4 = flag;
@@ -384,11 +404,7 @@ export default function Home() {
         flag6 = flag2;
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1);
-        // setFlag3(player[x])
-        // setFlag4(flag)
-        // setFlag5(flag1)
-        // setFlag6(flag2)
+        setCards1(y1)
       } else if (39 < player[x] < 52) {
         const npc111 = npc1.filter((number) => 39 < number && number < 52);
         const npc222 = npc2.filter((number) => 39 < number && number < 52);
@@ -409,6 +425,9 @@ export default function Home() {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
+          // setTimeout(() => {
+          //   npc1111.shift()
+          // },10);
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -424,6 +443,9 @@ export default function Home() {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
+          // setTimeout(() => {
+          //   npc2222.shift()
+          // },10);
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -443,6 +465,9 @@ export default function Home() {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
+          // setTimeout(() => {
+          //   npc3333.shift()
+          // },10);
         }
         flag3 = player[x];
         flag4 = flag;
@@ -450,14 +475,15 @@ export default function Home() {
         flag6 = flag2;
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
-        setCards1(y1);
-        // setFlag3(player[x])
-        // setFlag4(flag)
-        // setFlag5(flag1)
-        // setFlag6(flag2)
+        setCards1(y1)
       }
-
-      console.log(cards1);
+      
+      setTimeout(() => {
+        ep.current.children[1].children[0].style.display = "flex";
+        ep.current.children[2].children[0].style.display = "flex";
+        ep.current.children[3].children[0].style.display = "flex";
+        ep.current.children[4].children[0].style.display = "flex";
+      }, 10);
 
       setTimeout(() => {
         if (flag3 > flag4 && flag3 > flag5 && flag3 > flag6) {
@@ -478,11 +504,10 @@ export default function Home() {
         // console.log(flag3);
       }, 2000);
 
-      console.log(results1);
-      console.log(results2);
+
     }
   }
-  // console.log(results1);
+  console.log(cards1);
 
 
 
@@ -490,6 +515,7 @@ export default function Home() {
     <main className="w-[100%] h-[100vh] bg flex justify-center items-center">
       <section className="w-[400px] h-[90%] rounded-lg bg-[rgba(0,0,0,.2)] bs">
         <article className="w-[100%] h-[100%] flex flex-wrap">
+
           <div className="w-[100%] flex justify-between h-[15%]">
             <div className="w-[33%] h-[100%] flex flex-wrap justify-center content-around">
               <p className="w-[70%] h-[35%] text-[1.2rem] uppercase flex justify-center items-center text-white">
@@ -541,7 +567,7 @@ export default function Home() {
 
             <div className="w-[33%] h-[100%] flex flex-wrap justify-center content-around">
               <p className="w-[70%] h-[35%] text-[1.2rem] uppercase flex justify-center items-center text-white">
-                player
+              Computer
               </p>
               <div className="w-[90%] h-[65%] relative bottom-0">
                 <ul className="w-[100%] h-[100%] absolute">
