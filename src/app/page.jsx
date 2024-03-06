@@ -194,41 +194,40 @@ export default function Home() {
         let flag1 = null;
         let flag2 = null;
         const x1 = npc1111.find((reza) => reza > player[x]);
-        console.log(npc1111);
-        console.log(x1);
+        
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
-          // setTimeout(() => {
-          //   npc1111.filter(item => item !==x1)
-            
-          // }, 2000);
+          const y =npc1.indexOf(x1)
+          npc1.splice(y,1)
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
-          // setTimeout(() => {
-          //   // npc1111.shift()
-          // },10);
+          const y =npc1.indexOf(x2)
+          npc1.splice(y,1)
         }
         console.log(npc1111);
-
+        console.log(npc1)
         const npc211 = npc2222.find((reza1) => reza1 > flag);
         const npc213 = npc2222.find((reza1) => reza1 > player[x]);
 
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
+          const y =npc2.indexOf(npc211)
+          npc2.splice(y,1)
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
+          const y =npc2.indexOf(npc213)
+          npc2.splice(y,1)
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          // setTimeout(() => {
-          //   npc2222.shift()
-          // },10);
+          const y =npc2.indexOf(npc212)
+          npc2.splice(y,1)
         }
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
         const npc313 = npc3333.find((reza2) => reza2 > player[x]);
@@ -237,19 +236,24 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
+          const y =npc3.indexOf(npc311)
+          npc3.splice(y,1)
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
+          const y =npc3.indexOf(npc314)
+          npc3.splice(y,1)
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
+          const y =npc3.indexOf(npc313)
+          npc3.splice(y,1)
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          // setTimeout(() => {
-          //   npc3333.shift()
-          // },10);
+          const y =npc3.indexOf(npc312)
+          npc3.splice(y,1)
         }
 
         flag3 = player[x];
@@ -276,13 +280,14 @@ export default function Home() {
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
+          const y =npc1.indexOf(x1)
+          npc1.splice(y,1)
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
-          // setTimeout(() => {
-          //   npc1111.shift()
-          // },10);
+          const y =npc1.indexOf(x2)
+          npc1.splice(y,1)
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -291,16 +296,19 @@ export default function Home() {
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
+          const y =npc2.indexOf(npc211)
+          npc2.splice(y,1)
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
+          const y =npc2.indexOf(npc213)
+          npc2.splice(y,1)
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          // setTimeout(() => {
-          //   npc2222.shift()
-          // },10);
+          const y =npc2.indexOf(npc212)
+          npc2.splice(y,1)
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -310,19 +318,24 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
+          const y =npc3.indexOf(npc311)
+          npc3.splice(y,1)
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
+          const y =npc3.indexOf(npc314)
+          npc3.splice(y,1)
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
+          const y =npc3.indexOf(npc313)
+          npc3.splice(y,1)
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          // setTimeout(() => {
-          //   npc3333.shift()
-          // },10);
+          const y =npc3.indexOf(npc312)
+          npc3.splice(y,1)
         }
         flag3 = player[x];
         flag4 = flag;
@@ -350,13 +363,14 @@ export default function Home() {
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
+          const y =npc1.indexOf(x1)
+          npc1.splice(y,1)
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
-          // setTimeout(() => {
-          //   npc1111.shift()
-          // },10);
+          const y =npc1.indexOf(x2)
+          npc1.splice(y,1)
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -365,16 +379,19 @@ export default function Home() {
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
+          const y =npc2.indexOf(npc211)
+          npc2.splice(y,1)
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
+          const y =npc2.indexOf(npc213)
+          npc2.splice(y,1)
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          // setTimeout(() => {
-          //   npc2222.shift()
-          // },10);
+          const y =npc2.indexOf(npc212)
+          npc2.splice(y,1)
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -384,19 +401,24 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
+          const y =npc3.indexOf(npc311)
+          npc3.splice(y,1)
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
+          const y =npc3.indexOf(npc314)
+          npc3.splice(y,1)
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
+          const y =npc3.indexOf(npc313)
+          npc3.splice(y,1)
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          // setTimeout(() => {
-          //   npc3333.shift()
-          // },10);
+          const y =npc3.indexOf(npc312)
+          npc3.splice(y,1)
         }
         flag3 = player[x];
         flag4 = flag;
@@ -421,13 +443,14 @@ export default function Home() {
         if (x1) {
           setNpc11(cards[x1]);
           flag = x1;
+          const y =npc1.indexOf(x1)
+          npc1.splice(y,1)
         } else {
           const x2 = npc1111[0];
           setNpc11(cards[x2]);
           flag = x2;
-          // setTimeout(() => {
-          //   npc1111.shift()
-          // },10);
+          const y =npc1.indexOf(x2)
+          npc1.splice(y,1)
         }
 
         const npc211 = npc2222.find((reza1) => reza1 > flag);
@@ -436,16 +459,19 @@ export default function Home() {
         if (npc211 > player[x]) {
           setNpc21(cards[npc211]);
           flag1 = npc211;
+          const y =npc2.indexOf(npc211)
+          npc2.splice(y,1)
         } else if (npc213 > npc211) {
           setNpc21(cards[npc213]);
           flag1 = npc213;
+          const y =npc2.indexOf(npc213)
+          npc2.splice(y,1)
         } else {
           const npc212 = npc2222[0];
           setNpc21(cards[npc212]);
           flag1 = npc212;
-          // setTimeout(() => {
-          //   npc2222.shift()
-          // },10);
+          const y =npc2.indexOf(npc212)
+          npc2.splice(y,1)
         }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
@@ -455,19 +481,24 @@ export default function Home() {
         if (npc311 > player[x] && npc311 > flag) {
           setNpc31(cards[npc311]);
           flag2 = npc311;
+          const y =npc3.indexOf(npc311)
+          npc3.splice(y,1)
         } else if (npc314 > player[x] && npc314 > npc311) {
           setNpc31(cards[npc314]);
           flag2 = npc314;
+          const y =npc3.indexOf(npc314)
+          npc3.splice(y,1)
         } else if (npc313 > npc311) {
           setNpc31(cards[npc313]);
           flag2 = npc313;
+          const y =npc3.indexOf(npc313)
+          npc3.splice(y,1)
         } else {
           const npc312 = npc3333[0];
           setNpc31(cards[npc312]);
           flag2 = npc312;
-          // setTimeout(() => {
-          //   npc3333.shift()
-          // },10);
+          const y =npc3.indexOf(npc312)
+          npc3.splice(y,1)
         }
         flag3 = player[x];
         flag4 = flag;
@@ -477,7 +508,9 @@ export default function Home() {
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
         setCards1(y1)
       }
-      
+      console.log(npc1);
+      console.log(npc2);
+      console.log(npc3);
       setTimeout(() => {
         ep.current.children[1].children[0].style.display = "flex";
         ep.current.children[2].children[0].style.display = "flex";
@@ -507,7 +540,6 @@ export default function Home() {
 
     }
   }
-  console.log(cards1);
 
 
 
@@ -602,8 +634,8 @@ export default function Home() {
               style={{ display: "none" }}
               className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-180 -translate-x-6"
             >
-              {player &&
-                player.map((val, i) => {
+              {npc2 &&
+                npc2.map((val, i) => {
                   return (
                     <li
                       key={i}
@@ -641,8 +673,8 @@ export default function Home() {
               style={{ display: "none" }}
               className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg rotate-90 translate-y-10"
             >
-              {player &&
-                player.map((val, i) => {
+              {npc3 &&
+                npc3.map((val, i) => {
                   return (
                     <li
                       key={i}
@@ -708,8 +740,8 @@ export default function Home() {
               style={{ display: "none" }}
               className="w-[120px] h-[60px] relative *:cursor-pointer *:rounded-lg -rotate-90 -translate-y-10"
             >
-              {player &&
-                player.map((val, i) => {
+              {npc1 &&
+                npc1.map((val, i) => {
                   return (
                     <li
                       key={i}
