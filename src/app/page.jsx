@@ -195,7 +195,7 @@ export default function Home() {
     }
     H.current.style.display = "none";
   }
-console.log(cardsH);
+  console.log(cardsH);
   function start() {
     const x = [];
     while (x.length < 52) {
@@ -251,8 +251,9 @@ console.log(cardsH);
       let flag4 = null;
       let flag5 = null;
       let flag6 = null;
-console.log(x);
-console.log(player);
+      console.log(x);
+      console.log(player);
+
       if (player[x] < 13) {
         const npc111 = npc1.filter((number) => number < 13);
         const npc222 = npc2.filter((number) => number < 13);
@@ -261,153 +262,99 @@ console.log(player);
         const npc2222 = npc222.slice().sort((a, b) => a - b);
         const npc3333 = npc333.slice().sort((a, b) => a - b);
 
+
+
         let flag = null;
         let flag1 = null;
         let flag2 = null;
         const x1 = npc1111.find((reza) => reza > player[x]);
 
         if (npc1111.length == 0) {
-          if (cardsH == 2) {
-            const npc10 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
+          const npc20 = npc1.filter((number) => 13 <= number && number < 26);
+          const npc220 = npc20.slice().sort((a, b) => a - b);
+          const npc30 = npc1.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc1.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
 
-            if (npc110.length == 0) {
+          if (cardsH == 1) {
+            if (npc220.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
-              const x2 = npc110[0];
-              // setNpc11(cards[x2]);
+              const x2 = npc220[0];
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
-
           }
+
+          if (cardsH == 2) {
+            if (npc220.length == 0) {
+              if (npc330.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc1.indexOf(x2);
+                npc1.splice(y, 1);
+              } else {
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc1.indexOf(x2);
+                npc1.splice(y, 1);
+              }
+            } else {
+              const x2 = npc220[0];
+              flag = x2;
+              const y = npc1.indexOf(x2);
+              npc1.splice(y, 1);
+            }
+          }
+
           if (cardsH == 3) {
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
             if (npc330.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
-          } 
+          }
+
           if (cardsH == 4) {
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
             if (npc440.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc1.indexOf(x2);
-              npc1.splice(y, 1);
-            }
-          }
-           if (cardsH == 1) {
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
@@ -415,166 +362,104 @@ console.log(player);
           }
         } else {
           if (x1) {
-            // setNpc11(cards[x1]);
             flag = x1;
             const y = npc1.indexOf(x1);
             npc1.splice(y, 1);
-            // player.splice(x,1)
           } else {
             const x2 = npc1111[0];
-            // setNpc11(cards[x2]);
             flag = x2;
             const y = npc1.indexOf(x2);
             npc1.splice(y, 1);
           }
         }
 
-       
         const npc211 = npc2222.find((reza1) => reza1 > flag);
         const npc213 = npc2222.find((reza1) => reza1 > player[x]);
 
         if (npc2222.length == 0) {
-          if (cardsH == 2) {
-            const npc10 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
+          const npc20 = npc2.filter((number) => 13 <= number && number < 26);
+          const npc220 = npc20.slice().sort((a, b) => a - b);
+          const npc30 = npc2.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc2.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
 
-            if (npc110.length == 0) {
+          if (cardsH == 1) {
+            if (npc220.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
-              const x2 = npc110[0];
-              // setNpc11(cards[x2]);
+              const x2 = npc220[0];
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-
           }
+          if (cardsH == 2) {
+            if (npc220.length == 0) {
+              if (npc330.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              } else {
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              }
+            } else {
+              const x2 = npc220[0];
+              flag = x2;
+              const y = npc2.indexOf(x2);
+              npc2.splice(y, 1);
+            }
+          }
+
           if (cardsH == 3) {
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
             if (npc330.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
             if (npc440.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc2.indexOf(x2);
-              npc2.splice(y, 1);
-            }
-          }
-           if (cardsH == 1) {
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
@@ -605,147 +490,90 @@ console.log(player);
         const npc314 = npc3333.find((reza2) => reza2 > flag);
 
         if (npc3333.length == 0) {
-          if (cardsH == 2) {
-            const npc10 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
+          const npc20 = npc3.filter((number) => 13 <= number && number < 26);
+          const npc220 = npc20.slice().sort((a, b) => a - b);
+          const npc30 = npc3.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc3.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
 
-            if (npc110.length == 0) {
+          if (cardsH == 1) {
+            if (npc220.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
             } else {
-              const x2 = npc110[0];
-              // setNpc11(cards[x2]);
+              const x2 = npc220[0];
               flag = x2;
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
-
           }
+
+          if (cardsH == 2) {
+            if (npc220.length == 0) {
+              if (npc330.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc3.indexOf(x2);
+                npc3.splice(y, 1);
+              } else {
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc3.indexOf(x2);
+                npc3.splice(y, 1);
+              }
+            } else {
+              const x2 = npc220[0];
+              flag = x2;
+              const y = npc3.indexOf(x2);
+              npc3.splice(y, 1);
+            }
+          }
+
           if (cardsH == 3) {
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
             if (npc330.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
             if (npc440.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              // setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc3.indexOf(x2);
-              npc3.splice(y, 1);
-            }
-          }
-           if (cardsH == 1) {
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
@@ -753,29 +581,25 @@ console.log(player);
           }
         } else {
           if (npc311 > player[x] && npc311 > flag) {
-            setNpc31(cards[npc311]);
             flag2 = npc311;
             const y = npc3.indexOf(npc311);
             npc3.splice(y, 1);
           } else if (npc314 > player[x] && npc314 > npc311) {
-            setNpc31(cards[npc314]);
             flag2 = npc314;
             const y = npc3.indexOf(npc314);
             npc3.splice(y, 1);
           } else if (npc313 > npc311) {
-            setNpc31(cards[npc313]);
             flag2 = npc313;
             const y = npc3.indexOf(npc313);
             npc3.splice(y, 1);
           } else {
             const npc312 = npc3333[0];
-            // setNpc31(cards[npc312]);
             flag2 = npc312;
             const y = npc3.indexOf(npc312);
             npc3.splice(y, 1);
           }
         }
- 
+
         flag3 = player[x];
         flag4 = flag;
         flag5 = flag1;
@@ -784,8 +608,8 @@ console.log(player);
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
         setCards1(y1);
-      
-      } 
+      }
+
       if (13 <= player[x] < 26) {
         const npc111 = npc1.filter((number) => 13 <= number && number < 26);
         const npc222 = npc2.filter((number) => 13 <= number && number < 26);
@@ -797,85 +621,87 @@ console.log(player);
         let flag = null;
         let flag1 = null;
         let flag2 = null;
-        const x1 = npc1111.find((reza) => reza > player[x]);
-        if (npc1111.length == 0) {
-          if (cardsH == 2) {
-            const npc10 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
 
+        const x1 = npc1111.find((reza) => reza > player[x]);
+
+        if (npc1111.length == 0) {
+          const npc10 = npc1.filter((number) =>  number && number < 13);
+          const npc110 = npc10.slice().sort((a, b) => a - b);
+          const npc30 = npc1.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc1.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
+          if (cardsH == 2) {
             if (npc110.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
               const x2 = npc110[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
-
           }
-          if (cardsH == 3) {
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc330.length == 0) {
-              if (npc220.length == 0) {
+
+          if (cardsH == 1) {
+            if (npc110.length == 0) {
+              if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc1.indexOf(x2);
+                npc1.splice(y, 1);
+              }
+            } else {
+              const x2 = npc110[0];
+              flag = x2;
+              const y = npc1.indexOf(x2);
+              npc1.splice(y, 1);
+            }
+          }
+          if (cardsH == 3) {
+            if (npc330.length == 0) {
+              if (npc110.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc1.indexOf(x2);
+                npc1.splice(y, 1);
+              } else {
+                const x2 = npc110[0];
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
+
             if (npc440.length == 0) {
-              if (npc220.length == 0) {
+              if (npc110.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
-                const x2 = npc220[0];
-                setNpc11(cards[x2]);
+                const x2 = npc110[0];
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
@@ -888,424 +714,243 @@ console.log(player);
               npc1.splice(y, 1);
             }
           }
-           if (cardsH == 1) {
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc1.indexOf(x2);
-              npc1.splice(y, 1);
-            }
+        } else {
+          if (x1) {
+            flag = x1;
+            const y = npc1.indexOf(x1);
+            npc1.splice(y, 1);
+          } else {
+            const x2 = npc1111[0];
+            flag = x2;
+            const y = npc1.indexOf(x2);
+            npc1.splice(y, 1);
           }
-        } else {
-        if (x1) {
-          setNpc11(cards[x1]);
-          flag = x1;
-          const y = npc1.indexOf(x1);
-          npc1.splice(y, 1);
-        } else {
-          const x2 = npc1111[0];
-          // setNpc11(cards[x2]);
-          flag = x2;
-          const y = npc1.indexOf(x2);
-          npc1.splice(y, 1);
         }
-      }
-      console.log(npc1111);
-      console.log(npc1);
+
         const npc211 = npc2222.find((reza1) => reza1 > flag);
         const npc213 = npc2222.find((reza1) => reza1 > player[x]);
 
         if (npc2222.length == 0) {
+          const npc10 = npc2.filter((number) =>  number && number < 13);
+          const npc110 = npc10.slice().sort((a, b) => a - b);
+          const npc30 = npc2.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc2.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
           if (cardsH == 2) {
-            const npc10 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-
             if (npc110.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
               const x2 = npc110[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-
           }
-          if (cardsH == 3) {
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc330.length == 0) {
-              if (npc220.length == 0) {
+
+          if (cardsH == 1) {
+            if (npc110.length == 0) {
+              if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              }
+            } else {
+              const x2 = npc110[0];
+              flag = x2;
+              const y = npc2.indexOf(x2);
+              npc2.splice(y, 1);
+            }
+          }
+          if (cardsH == 3) {
+            if (npc330.length == 0) {
+              if (npc110.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              } else {
+                const x2 = npc110[0];
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
+
             if (npc440.length == 0) {
-              if (npc220.length == 0) {
+              if (npc110.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
+                const x2 = npc110[0];
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              // setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc2.indexOf(x2);
-              npc2.splice(y, 1);
-            }
-          }
-           if (cardsH == 1) {
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
+              setNpc11(cards[x2]);
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
           }
         } else {
-        if (npc211 > player[x]) {
-          setNpc21(cards[npc211]);
-          flag1 = npc211;
-          const y = npc2.indexOf(npc211);
-          npc2.splice(y, 1);
-        } else if (npc213 > npc211) {
-          setNpc21(cards[npc213]);
-          flag1 = npc213;
-          const y = npc2.indexOf(npc213);
-          npc2.splice(y, 1);
-        } else {
-          const npc212 = npc2222[0];
-          setNpc21(cards[npc212]);
-          flag1 = npc212;
-          const y = npc2.indexOf(npc212);
-          npc2.splice(y, 1);
+          if (npc211 > player[x]) {
+            flag1 = npc211;
+            const y = npc2.indexOf(npc211);
+            npc2.splice(y, 1);
+          } else if (npc213 > npc211) {
+            flag1 = npc213;
+            const y = npc2.indexOf(npc213);
+            npc2.splice(y, 1);
+          } else {
+            const npc212 = npc2222[0];
+            flag1 = npc212;
+            const y = npc2.indexOf(npc212);
+            npc2.splice(y, 1);
+          }
         }
-      }
 
         const npc311 = npc3333.find((reza2) => reza2 > flag1);
         const npc313 = npc3333.find((reza2) => reza2 > player[x]);
         const npc314 = npc3333.find((reza2) => reza2 > flag);
 
         if (npc3333.length == 0) {
+          const npc10 = npc3.filter((number) =>  number && number < 13);
+          const npc110 = npc10.slice().sort((a, b) => a - b);
+          const npc30 = npc3.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc3.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
           if (cardsH == 2) {
-            const npc10 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-
             if (npc110.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
             } else {
               const x2 = npc110[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
+          }
 
+          if (cardsH == 1) {
+            if (npc110.length == 0) {
+              if (npc330.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              } else {
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              }
+            } else {
+              const x2 = npc110[0];
+              flag = x2;
+              const y = npc2.indexOf(x2);
+              npc2.splice(y, 1);
+            }
           }
           if (cardsH == 3) {
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
             if (npc330.length == 0) {
-              if (npc220.length == 0) {
+              if (npc110.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
               } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
+                const x2 = npc110[0];
                 flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
-              const y = npc3.indexOf(x2);
-              npc3.splice(y, 1);
+              const y = npc2.indexOf(x2);
+              npc2.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
+
             if (npc440.length == 0) {
-              if (npc220.length == 0) {
+              if (npc110.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
               } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
+                const x2 = npc110[0];
                 flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              // setNpc11(cards[x2]);
+              setNpc11(cards[x2]);
               flag = x2;
-              const y = npc3.indexOf(x2);
-              npc3.splice(y, 1);
-            }
-          }
-           if (cardsH == 1) {
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc3.indexOf(x2);
-              npc3.splice(y, 1);
+              const y = npc2.indexOf(x2);
+              npc2.splice(y, 1);
             }
           }
         } else {
-        if (npc311 > player[x] && npc311 > flag) {
-          setNpc31(cards[npc311]);
-          flag2 = npc311;
-          const y = npc3.indexOf(npc311);
-          npc3.splice(y, 1);
-        } else if (npc314 > player[x] && npc314 > npc311) {
-          setNpc31(cards[npc314]);
-          flag2 = npc314;
-          const y = npc3.indexOf(npc314);
-          npc3.splice(y, 1);
-        } else if (npc313 > npc311) {
-          setNpc31(cards[npc313]);
-          flag2 = npc313;
-          const y = npc3.indexOf(npc313);
-          npc3.splice(y, 1);
-        } else {
-          const npc312 = npc3333[0];
-          setNpc31(cards[npc312]);
-          flag2 = npc312;
-          const y = npc3.indexOf(npc312);
-          npc3.splice(y, 1);
+          if (npc311 > player[x] && npc311 > flag) {
+            flag2 = npc311;
+            const y = npc3.indexOf(npc311);
+            npc3.splice(y, 1);
+          } else if (npc314 > player[x] && npc314 > npc311) {
+            flag2 = npc314;
+            const y = npc3.indexOf(npc314);
+            npc3.splice(y, 1);
+          } else if (npc313 > npc311) {
+            flag2 = npc313;
+            const y = npc3.indexOf(npc313);
+            npc3.splice(y, 1);
+          } else {
+            const npc312 = npc3333[0];
+            flag2 = npc312;
+            const y = npc3.indexOf(npc312);
+            npc3.splice(y, 1);
+          }
         }
-      }
 
         flag3 = player[x];
         flag4 = flag;
@@ -1315,8 +960,8 @@ console.log(player);
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
         setCards1(y1);
-    
-      } 
+      }
+
       if (26 <= player[x] < 39) {
         const npc111 = npc1.filter((number) => 26 <= number && number < 39);
         const npc222 = npc2.filter((number) => 26 <= number && number < 39);
@@ -1332,147 +977,89 @@ console.log(player);
         const x1 = npc1111.find((reza) => reza > player[x]);
 
         if (npc1111.length == 0) {
-          if (cardsH == 2) {
-            const npc10 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
+          const npc20 = npc1.filter((number) => 13 <= number && number < 26);
+          const npc220 = npc20.slice().sort((a, b) => a - b);
+          const npc30 = npc1.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc1.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
 
-            if (npc110.length == 0) {
+          if (cardsH == 1) {
+            if (npc220.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
-              const x2 = npc110[0];
-              // setNpc11(cards[x2]);
+              const x2 = npc220[0];
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
+          }
 
+          if (cardsH == 2) {
+            if (npc220.length == 0) {
+              if (npc330.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc1.indexOf(x2);
+                npc1.splice(y, 1);
+              } else {
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc1.indexOf(x2);
+                npc1.splice(y, 1);
+              }
+            } else {
+              const x2 = npc220[0];
+              flag = x2;
+              const y = npc1.indexOf(x2);
+              npc1.splice(y, 1);
+            }
           }
           if (cardsH == 3) {
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
             if (npc330.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
             if (npc440.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc1.indexOf(x2);
-              npc1.splice(y, 1);
-            }
-          }
-           if (cardsH == 1) {
-            const npc20 = npc1.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc1.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc1.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc1.indexOf(x2);
-                npc1.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
@@ -1480,13 +1067,11 @@ console.log(player);
           }
         } else {
           if (x1) {
-            // setNpc11(cards[x1]);
             flag = x1;
             const y = npc1.indexOf(x1);
             npc1.splice(y, 1);
           } else {
             const x2 = npc1111[0];
-            // setNpc11(cards[x2]);
             flag = x2;
             const y = npc1.indexOf(x2);
             npc1.splice(y, 1);
@@ -1497,147 +1082,92 @@ console.log(player);
         const npc213 = npc2222.find((reza1) => reza1 > player[x]);
 
         if (npc2222.length == 0) {
-          if (cardsH == 2) {
-            const npc10 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
+          const npc20 = npc2.filter((number) => 13 <= number && number < 26);
+          const npc220 = npc20.slice().sort((a, b) => a - b);
+          const npc30 = npc2.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc2.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
 
-            if (npc110.length == 0) {
+          if (cardsH == 1) {
+            if (npc220.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
-              const x2 = npc110[0];
-              // setNpc11(cards[x2]);
+              const x2 = npc220[0];
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-
           }
+
+          if (cardsH == 2) {
+
+            if (npc220.length == 0) {
+              if (npc330.length == 0) {
+                const x2 = npc440[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              } else {
+                const x2 = npc330[0];
+                flag = x2;
+                const y = npc2.indexOf(x2);
+                npc2.splice(y, 1);
+              }
+            } else {
+              const x2 = npc220[0];
+              flag = x2;
+              const y = npc2.indexOf(x2);
+              npc2.splice(y, 1);
+            }
+          }
+
           if (cardsH == 3) {
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
             if (npc330.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-          } 
+          }
+
           if (cardsH == 4) {
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
             if (npc440.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc2.indexOf(x2);
-              npc2.splice(y, 1);
-            }
-          }
-           if (cardsH == 1) {
-            const npc20 = npc2.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc2.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc2.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc2.indexOf(x2);
-                npc2.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
@@ -1645,18 +1175,15 @@ console.log(player);
           }
         } else {
           if (npc211 > player[x]) {
-            setNpc21(cards[npc211]);
             flag1 = npc211;
             const y = npc2.indexOf(npc211);
             npc2.splice(y, 1);
           } else if (npc213 > npc211) {
-            setNpc21(cards[npc213]);
             flag1 = npc213;
             const y = npc2.indexOf(npc213);
             npc1.splice(y, 1);
           } else {
             const npc212 = npc2222[0];
-            setNpc21(cards[npc212]);
             flag1 = npc212;
             const y = npc2.indexOf(npc212);
             npc2.splice(y, 1);
@@ -1668,152 +1195,77 @@ console.log(player);
         const npc314 = npc3333.find((reza2) => reza2 > flag);
 
         if (npc3333.length == 0) {
+          const npc20 = npc3.filter((number) => 13 <= number && number < 26);
+          const npc220 = npc20.slice().sort((a, b) => a - b);
+          const npc30 = npc3.filter((number) => 26 <= number && number < 39);
+          const npc330 = npc30.slice().sort((a, b) => a - b);
+          const npc40 = npc3.filter((number) => 39 <= number && number < 52);
+          const npc440 = npc40.slice().sort((a, b) => a - b);
+          
           if (cardsH == 2) {
-            const npc10 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc110 = npc10.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
 
-            if (npc110.length == 0) {
+            if (npc220.length == 0) {
               if (npc330.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               } else {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
             } else {
-              const x2 = npc110[0];
-              // setNpc11(cards[x2]);
+              const x2 = npc220[0];
               flag = x2;
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
-
           }
           if (cardsH == 3) {
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
+
             if (npc330.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc440[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
             } else {
               const x2 = npc330[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
+
             if (npc440.length == 0) {
               if (npc220.length == 0) {
                 const x2 = npc330[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               } else {
                 const x2 = npc220[0];
-                // setNpc11(cards[x2]);
                 flag = x2;
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
             } else {
               const x2 = npc440[0];
-              // setNpc11(cards[x2]);
               flag = x2;
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
           }
-           if (cardsH == 1) {
-            const npc20 = npc3.filter((number) => 13 <= number && number < 26);
-            const npc220 = npc20.slice().sort((a, b) => a - b);
-            const npc30 = npc3.filter((number) => 26 <= number && number < 39);
-            const npc330 = npc30.slice().sort((a, b) => a - b);
-            const npc40 = npc3.filter((number) => 39 <= number && number < 52);
-            const npc440 = npc40.slice().sort((a, b) => a - b);
-            if (npc220.length == 0) {
-              if (npc330.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else if (npc330.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc220[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else if (npc440.length == 0) {
-              if (npc220.length == 0) {
-                const x2 = npc440[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              } else {
-                const x2 = npc330[0];
-                // setNpc11(cards[x2]);
-                flag = x2;
-                const y = npc3.indexOf(x2);
-                npc3.splice(y, 1);
-              }
-            } else{
-              const x2 = npc220[0];
-              // setNpc11(cards[x2]);
-              flag = x2;
-              const y = npc3.indexOf(x2);
-              npc3.splice(y, 1);
-            }
-          }
+
         } else {
           if (npc311 > player[x] && npc311 > flag) {
             setNpc31(cards[npc311]);
@@ -1846,8 +1298,8 @@ console.log(player);
         let y1 = [];
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
         setCards1(y1);
- 
-      } 
+      }
+
       if (39 <= player[x] < 52) {
         const npc111 = npc1.filter((number) => 39 <= number && number < 52);
         const npc222 = npc2.filter((number) => 39 <= number && number < 52);
@@ -1891,7 +1343,6 @@ console.log(player);
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
-
           }
           if (cardsH == 3) {
             const npc30 = npc1.filter((number) => 26 <= number && number < 39);
@@ -1921,7 +1372,7 @@ console.log(player);
               const y = npc1.indexOf(x2);
               npc1.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
             const npc40 = npc1.filter((number) => 39 <= number && number < 52);
             const npc440 = npc40.slice().sort((a, b) => a - b);
@@ -1951,7 +1402,7 @@ console.log(player);
               npc1.splice(y, 1);
             }
           }
-           if (cardsH == 1) {
+          if (cardsH == 1) {
             const npc20 = npc1.filter((number) => 13 <= number && number < 26);
             const npc220 = npc20.slice().sort((a, b) => a - b);
             const npc30 = npc1.filter((number) => 26 <= number && number < 39);
@@ -2000,7 +1451,7 @@ console.log(player);
                 const y = npc1.indexOf(x2);
                 npc1.splice(y, 1);
               }
-            } else{
+            } else {
               const x2 = npc220[0];
               // setNpc11(cards[x2]);
               flag = x2;
@@ -2056,7 +1507,6 @@ console.log(player);
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-
           }
           if (cardsH == 3) {
             const npc30 = npc2.filter((number) => 26 <= number && number < 39);
@@ -2086,7 +1536,7 @@ console.log(player);
               const y = npc2.indexOf(x2);
               npc2.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
             const npc40 = npc2.filter((number) => 39 <= number && number < 52);
             const npc440 = npc40.slice().sort((a, b) => a - b);
@@ -2116,7 +1566,7 @@ console.log(player);
               npc2.splice(y, 1);
             }
           }
-           if (cardsH == 1) {
+          if (cardsH == 1) {
             const npc20 = npc2.filter((number) => 13 <= number && number < 26);
             const npc220 = npc20.slice().sort((a, b) => a - b);
             const npc30 = npc2.filter((number) => 26 <= number && number < 39);
@@ -2165,7 +1615,7 @@ console.log(player);
                 const y = npc2.indexOf(x2);
                 npc2.splice(y, 1);
               }
-            } else{
+            } else {
               const x2 = npc220[0];
               // setNpc11(cards[x2]);
               flag = x2;
@@ -2227,7 +1677,6 @@ console.log(player);
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
-
           }
           if (cardsH == 3) {
             const npc30 = npc3.filter((number) => 26 <= number && number < 39);
@@ -2257,7 +1706,7 @@ console.log(player);
               const y = npc3.indexOf(x2);
               npc3.splice(y, 1);
             }
-          } 
+          }
           if (cardsH == 4) {
             const npc40 = npc3.filter((number) => 39 <= number && number < 52);
             const npc440 = npc40.slice().sort((a, b) => a - b);
@@ -2287,7 +1736,7 @@ console.log(player);
               npc3.splice(y, 1);
             }
           }
-           if (cardsH == 1) {
+          if (cardsH == 1) {
             const npc20 = npc3.filter((number) => 13 <= number && number < 26);
             const npc220 = npc20.slice().sort((a, b) => a - b);
             const npc30 = npc3.filter((number) => 26 <= number && number < 39);
@@ -2336,7 +1785,7 @@ console.log(player);
                 const y = npc3.indexOf(x2);
                 npc3.splice(y, 1);
               }
-            } else{
+            } else {
               const x2 = npc220[0];
               // setNpc11(cards[x2]);
               flag = x2;
@@ -2377,7 +1826,7 @@ console.log(player);
         y1.push(cards[flag3], cards[flag4], cards[flag5], cards[flag6]);
         setCards1(y1);
       }
-      
+
       console.log(cards1);
       setTimeout(() => {
         ep.current.children[1].children[0].style.display = "flex";
@@ -2385,7 +1834,7 @@ console.log(player);
         ep.current.children[3].children[0].style.display = "flex";
         ep.current.children[4].children[0].style.display = "flex";
       }, 10);
-      
+
       setTimeout(() => {
         if (flag3 > flag4 && flag3 > flag5 && flag3 > flag6) {
           setResults1((para1) => [...para1, "y"]);
@@ -2554,7 +2003,6 @@ console.log(player);
                 })}
 
               <li></li>
-            
             </ul>
           </div>
 
@@ -2594,7 +2042,6 @@ console.log(player);
                 })}
 
               <li></li>
-
             </ul>
           </div>
 
@@ -2662,7 +2109,6 @@ console.log(player);
                 })}
 
               <li></li>
-              
             </ul>
           </div>
 
